@@ -10,11 +10,11 @@ YOLO segmentation on ODH.
 `COCO_PATH=/path/to/your/COCO/directory`
 4) Run the docker image:
 ```bash
-docker run -it -p 8888:8889 --mount type=bind,source="$COCO_PATH"/test2017/,target=/home/coco/test2017 $TAGNAME
+docker run -it -p 8888:8889 --mount type=bind,source="$COCO_PATH",target=/home/coco/ $TAGNAME
 ```
 Alternatively, run the pre-built image:
 ```bash
-docker run -it -p 8889:8889 --mount type=bind,source="$COCO_PATH"/test2017/,target=/home/coco/test2017 quay.io/rgeada/yolo-pipeline
+docker run -it -p 8889:8889 --mount type=bind,source="$COCO_PATH",target=/home/coco/ quay.io/rgeada/yolo-pipeline
 ```
 
 5) Navigate to the Jupyter notebook server and run the `example-flow.ipynb` notebook.
