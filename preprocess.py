@@ -35,14 +35,13 @@ def letterbox(im, new_shape=(640, 640), color=(114, 114, 114), auto=True, scaleF
     im = cv2.copyMakeBorder(im, top, bottom, left, right, cv2.BORDER_CONSTANT, value=color)  # add border
     return im, ratio, (dw, dh)
 
-
 def get_as_numpy(im):
-    arr = letterbox(np.array(im), (640, 640), auto=False, stride=32)[0]
-    arr = np.expand_dims(arr.transpose((2, 0, 1))[::-1], axis=0) / 255
+    arr = letterbox(np.array(im), (640, 640), auto=False, stride=32)[0][:,:,:3]
+    arr = np.expand_dims(arr.transpose((2, 0, 1)), axis=0) / 255
     return arr;
 
 
-def create_kserve_payload(im):
+def to_kserve(im):
     arr = get_as_numpy(im)
     return {
         "inputs": [

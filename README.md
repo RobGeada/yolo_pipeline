@@ -18,3 +18,9 @@ docker run -it -p 8889:8889 --mount type=bind,source="$COCO_PATH",target=/home/c
 ```
 
 5) Navigate to the Jupyter notebook server and run the `example-flow.ipynb` notebook.
+
+
+# CLI
+Alternatively, you can run the pipeline from a python script:
+
+`python3 pipeline.py /path/to/uploaded/image`
