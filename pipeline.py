@@ -16,9 +16,6 @@ model_url = "https://yolo-model-opendatahub-model.apps.trustyai.dzzt.p1.openshif
 # Preprocess
 print("Preprocessing")
 im = Image.open(image_path)
-
-max_dim = max(im.size)
-im = im.resize((int(im.size[0] * 640/max_dim), int(im.size[1] * 640/max_dim)))
 torch_im = torch.tensor(preprocess.get_as_numpy(im))
 request_body = preprocess.to_kserve(im)
 

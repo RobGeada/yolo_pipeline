@@ -36,9 +36,11 @@ def letterbox(im, new_shape=(640, 640), color=(114, 114, 114), auto=True, scaleF
     return im, ratio, (dw, dh)
 
 def get_as_numpy(im):
+    max_dim = max(im.size)
+    im = im.resize((int(im.size[0] * 640 / max_dim), int(im.size[1] * 640 / max_dim)))
     arr = letterbox(np.array(im), (640, 640), auto=False, stride=32)[0][:,:,:3]
     arr = np.expand_dims(arr.transpose((2, 0, 1)), axis=0) / 255
-    return arr;
+    return arr
 
 
 def to_kserve(im):
