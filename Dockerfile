@@ -10,4 +10,4 @@ COPY example_flow.ipynb /home/
 
 # launch notebook
 WORKDIR /home
-CMD jupyter notebook --ip 0.0.0.0 --port=8889 --no-browser --allow-root
+CMD jupyter notebook --ip 0.0.0.0 --port=8888 --no-browser --allow-root
