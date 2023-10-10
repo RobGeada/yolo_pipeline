@@ -12,4 +12,4 @@ COPY example_images/* /home/example_images/
 # launch notebook
 USER default
 WORKDIR /home
-CMD jupyter notebook --ip 0.0.0.0 --port=8889 --no-browser --allow-root
+CMD jupyter notebook --ip 0.0.0.0 --port=8888 --no-browser --allow-root
